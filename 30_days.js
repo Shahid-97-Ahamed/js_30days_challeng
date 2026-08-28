@@ -1,5 +1,7 @@
 // // // let fruits = ["apple", "banana", "orange"];
 
+
+
 // // fruits.push("mango")
 // // console.log(fruits)
 
@@ -301,13 +303,286 @@
 //     i++
 // }
 
-let i = 10;
-while(i>=1){
-    console.log(i);
-    i--
+// let i = 10;
+// while(i>=1){
+//     console.log(i);
+//     i--
+// }
+
+
+// let numbers = [10, 20, 30, 40, 50];
+
+// let i =0
+// while(i <numbers.length){
+//     console.log("Found ",numbers[2]);
+//     i++
+// }
+
+// let prices = [100, -50, 300, -20, 150];
+
+// let sum = 0
+// for(const price of prices){
+//     if(price < 0){
+//         continue
+//     }
+//     sum = sum +price
+// }
+// console.log(sum)
+
+// let users = { name: "Anis", role: "Developer", city: "Dhaka" };
+
+// for(const user in users){
+//     console.log(`${user}: ${users[user]}`)
+// }
+
+// let words = ["Hello", "how", "are", "you", "bad", "word", "here"];
+
+// for(const word of words){
+//     if(word ==="bad"){
+//         break
+//     }
+//     console.log(word) 
+// }
+
+// let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// for(const number of numbers){
+//     if(number % 2 !== 0){
+//         continue
+//     }
+//     console.log(number)
+// }
+
+// let stocks = { apple: 10, banana: 5, orange: 0, mango: 8 };
+
+// for(const stock in stocks){
+//     if(stocks[stock] === 0){
+//          console.log(`Out of Stock:  ${stock}`)
+//         break
+//     }
+   
+// }
+
+// let cart = [
+//   { name: "Shirt", price: 1200, quantity: 2 },
+//   { name: "Pants", price: 1800, quantity: 1 },
+//   { name: "Socks", price: 150, quantity: 3 }
+// ];
+
+// let totalPrice  = 0;
+// let totalProduct  =0;
+
+// for(const item of cart){
+//     totalPrice =totalPrice+item.price * item.quantity
+//     totalProduct+=item.quantity
+// }
+
+// console.log(`total price is: ${totalPrice}`)
+
+// let employees = [
+//   { name: "Rahim", salary: 3000 },
+//   { name: "Karim", salary: 4500 },
+//   { name: "Hasan", salary: 3500 },
+//   { name: "Rafi", salary: 5000 }
+// ];
+
+// let totalSalary = 0;
+
+// for(const sumOfAllSalary of employees){
+//     totalSalary+=sumOfAllSalary.salary;
+// }
+
+// console.log(totalSalary)
+
+// let students = [
+//   { name: "Rahim", marks: 45 },
+//   { name: "Karim", marks: 72 },
+//   { name: "Hasan", marks: 38 },
+//   { name: "Rafi", marks: 85 },
+//   { name: "Sakib", marks: 55 }
+// ];
+
+// let marks =0
+// for(const mark of students){
+//     // console.log(mark)
+//     const studentMark=mark.marks;
+//     // console.log(studentMark)
+//     if(studentMark >= 50){
+//         console.log(`${mark.name}: ${mark.marks}`)
+//     }
+// }
+
+
+// let cart = [
+//   { name: "Laptop", price: 45000, quantity: 1 },
+//   { name: "Mouse", price: 1200, quantity: 0 }, // এটি স্টকে নেই (quantity 0)
+//   { name: "Monitor", price: 15000, quantity: 2 },
+//   { name: "Keyboard", price: 2500, quantity: 0 }, // এটিও স্টকে নেই
+//   { name: "Headphones", price: 3500, quantity: 1 }
+// ];
+
+// let cartPrice =0
+// for(const item of cart){
+//     // console.log(item);
+//     const quent =item.quantity;
+//     // console.log(quent)
+//     if(quent === 0){
+//         cartPrice+=item.price
+        
+//     }
+// }
+
+// console.log(cartPrice)
+
+// let shoppingCart = [
+//   { name: "Smart Watch", price: 5000, category: "Electronics", quantity: 1 },
+//   { name: "T-Shirt", price: 1200, category: "Clothing", quantity: 3 },
+//   { name: "Bluetooth Speaker", price: 3000, category: "Electronics", quantity: 2 },
+//   { name: "Running Shoes", price: 4000, category: "Footwear", quantity: 1 }
+// ];
+
+// let shoppingCategory = 0
+
+// for(const item of shoppingCart){
+//     // console.log(item);
+//     const catgr =item.category;
+//     console.log(item.category);
+//     if(catgr === "Electronics" && item.category){
+//         // console.log("Ok")
+//         const disEPrice =item.price-(item.price *0.10)
+//         const aftDis =disEPrice+item.quantity
+//         // console.log(disPrice)
+//     }else{
+//         const oDisPrice =item.price-(item.price*0.05);
+//         const aferdis =oDisPrice+item.quantity
+//         // console.log(oDisPrice)
+//     }
+//     const afterDisTotalAmount =aferdis+aftDis;
+//     console.log(afterDisTotalAmount)
+// }
+
+// dry-------------------------------------------------------
+
+// function isValidPrice(price){
+//     return typeof price === "number" && price > 0;
+// }
+
+// function isValidEmail(email){
+//     return email.includes("@") && email.includes(".")
+// }
+
+// function calculateDiscount(price,discountedPrice){
+//     if(!isValidPrice(price)){
+//         return 0;
+//     }
+//     let discountedAmount =(price*discountedPrice)/100;
+//     return price -discountedAmount
+// }
+
+
+// function calculateFinalBill(price,vatPercentage=15){
+//     let vat =(price*vatPercentage)/100;
+//     return price+vat;
+// }
+
+// function formetBDT(amount){
+//     return `${amount.toFixed(2)} BDT`
+// }
+
+// function capitalized(str){
+//     if(!str) return "";
+//     return str.charAt(0).toUpperCase() + str.slice(1);
+// }
+
+// function processOrder(user,itemPrice,discountCode){
+//     console.log(`---Process order for ${capitalized(user.name)}---`);
+//     if(!isValidEmail(user.email)){
+//         console.log("Error:Invalid user email");
+//         return;
+//     }
+
+//     let currentPrice =itemPrice;
+
+//     if(discountCode =="SAR"){
+//         currentPrice =calculateDiscount(itemPrice,20);
+//         console.log("20% discount applied");
+//     }
+
+//     let totallBill =calculateFinalBill(currentPrice);
+
+//     console.log("Final amount to pay: ",formetBDT(totallBill));
+//     console.log("Order compleate Successfully");
+// }
+
+// let user1 ={name:"shahid",email:"shahid.97ahamed@gmail.com"};
+
+// processOrder(user1,12568,"SAR");
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+// we will build a order system  processed to unserstood dry and how import to understand a function this is
+
+function isValidPrice(price){
+    return typeof price === "number" && price > 0;
 }
 
+// console.log(isValidPrice("20"));
 
+function isValidEmail(email){
+    return email.includes("@")+email.includes(".")
+}
 
+// console.log(isValidEmail("shahid.97ahamed@gmail.com"));
 
-  
+function calculateDiscount(price,discount){
+    if(!isValidPrice(price)) {
+        return 0;
+    };
+
+    let disAmount = (price*discount)/100;
+    return price -disAmount
+}
+
+// console.log(calculateDiscount(100,15,"shush@xscsj.kwjj"));
+
+function calculateFinalBill(price,vatPercentage = 8){
+    let billWithVat = (price * vatPercentage)/100;
+    return price +billWithVat;
+}
+
+function formetBDT(amount){
+    return `${amount.toFixed(2)} BDT`
+
+}
+
+function capitalized(str){
+    if(!str) return "";
+    return str.charAt(0).toUpperCase() +str.slice(1);
+}
+
+// now system calculate
+
+function orderProcess(user,itemPrice,discountCode){
+    console.log(`------Order is processing ${user.name}----------`);
+    if(!isValidEmail(user.email)){
+        console.log("Error: Invalid user email");
+        return;
+    }
+
+    let currentPrice = itemPrice;
+
+    if(discountCode === "SAR97"){
+        currentPrice = calculateDiscount(itemPrice,8);
+        console.log("8% discount is applied")
+    }
+
+    let totallBill =calculateFinalBill(currentPrice);
+    console.log("Final Bill: ",formetBDT(totallBill));
+    
+    console.log("----------Thank You for your order-------------")
+};
+
+let user ={name:"shahid Ahamed",email:"shahid.97@gmail.com"};
+
+orderProcess(user,1000,"SAR97")
