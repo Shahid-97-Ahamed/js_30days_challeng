@@ -523,66 +523,144 @@
 
 // we will build a order system  processed to unserstood dry and how import to understand a function this is
 
-function isValidPrice(price){
-    return typeof price === "number" && price > 0;
-}
+// function isValidPrice(price){
+//     return typeof price === "number" && price > 0;
+// }
 
-// console.log(isValidPrice("20"));
+// // console.log(isValidPrice("20"));
 
-function isValidEmail(email){
-    return email.includes("@")+email.includes(".")
-}
+// function isValidEmail(email){
+//     return email.includes("@")+email.includes(".")
+// }
 
-// console.log(isValidEmail("shahid.97ahamed@gmail.com"));
+// // console.log(isValidEmail("shahid.97ahamed@gmail.com"));
 
-function calculateDiscount(price,discount){
-    if(!isValidPrice(price)) {
-        return 0;
-    };
+// function calculateDiscount(price,discount){
+//     if(!isValidPrice(price)) {
+//         return 0;
+//     };
 
-    let disAmount = (price*discount)/100;
-    return price -disAmount
-}
+//     let disAmount = (price*discount)/100;
+//     return price -disAmount
+// }
 
-// console.log(calculateDiscount(100,15,"shush@xscsj.kwjj"));
+// // console.log(calculateDiscount(100,15,"shush@xscsj.kwjj"));
 
-function calculateFinalBill(price,vatPercentage = 8){
-    let billWithVat = (price * vatPercentage)/100;
-    return price +billWithVat;
-}
+// function calculateFinalBill(price,vatPercentage = 8){
+//     let billWithVat = (price * vatPercentage)/100;
+//     return price +billWithVat;
+// }
 
-function formetBDT(amount){
-    return `${amount.toFixed(2)} BDT`
+// function formetBDT(amount){
+//     return `${amount.toFixed(2)} BDT`
 
-}
+// }
 
-function capitalized(str){
-    if(!str) return "";
-    return str.charAt(0).toUpperCase() +str.slice(1);
-}
+// function capitalized(str){
+//     if(!str) return "";
+//     return str.charAt(0).toUpperCase() +str.slice(1);
+// }
 
-// now system calculate
+// // now system calculate
 
-function orderProcess(user,itemPrice,discountCode){
-    console.log(`------Order is processing ${user.name}----------`);
-    if(!isValidEmail(user.email)){
-        console.log("Error: Invalid user email");
-        return;
-    }
+// function orderProcess(user,itemPrice,discountCode){
+//     console.log(`------Order is processing ${user.name}----------`);
+//     if(!isValidEmail(user.email)){
+//         console.log("Error: Invalid user email");
+//         return;
+//     }
 
-    let currentPrice = itemPrice;
+//     let currentPrice = itemPrice;
 
-    if(discountCode === "SAR97"){
-        currentPrice = calculateDiscount(itemPrice,8);
-        console.log("8% discount is applied")
-    }
+//     if(discountCode === "SAR97"){
+//         currentPrice = calculateDiscount(itemPrice,8);
+//         console.log("8% discount is applied")
+//     }
 
-    let totallBill =calculateFinalBill(currentPrice);
-    console.log("Final Bill: ",formetBDT(totallBill));
+//     let totallBill =calculateFinalBill(currentPrice);
+//     console.log("Final Bill: ",formetBDT(totallBill));
     
-    console.log("----------Thank You for your order-------------")
+//     console.log("----------Thank You for your order-------------")
+// };
+
+// let user ={name:"shahid Ahamed",email:"shahid.97@gmail.com"};
+
+// orderProcess(user,1000,"SAR97");
+
+
+// -------------------------------------------------------------------------------------------------------------------------------
+
+// Mini Project
+
+let students =[
+    {id:101,name:"Ajim",age:36,dept:"FrontEnd"},
+    {id:102,name:"Rasel",age:26,dept:"BackEnd"},
+    {id:103,name:"Jon",age:35,dept:"Softwear"},
+];
+
+function addStudent(name,age,dept){
+    let addNewStdID =students.length > 0 ?students[students.length - 1].id + 1:101; /*new id created*/
+
+    let newStd ={
+        id:addNewStdID,
+        name:name,
+        department:dept
+    }
+
+    students.push(newStd);
+
+    console.log("----New Student Successfully---");
 };
 
-let user ={name:"shahid Ahamed",email:"shahid.97@gmail.com"};
+addStudent("Hataim",40,"DB");
+addStudent("Hataim",40,"DB");
 
-orderProcess(user,1000,"SAR97")
+// console.log(students)
+
+function getAll(){
+    for(const student of students){
+        console.log(student);
+    }
+};
+
+
+
+function findStudent(name){
+    let findStd = null;
+
+    for(let student of students){
+        if(student.name == name){
+            findStd = student;
+            break
+        }
+    }
+
+    if(findStd){
+        console.log("Your Student Name Is: ",findStd);
+    }else{
+        console.log("404 not  found");
+    }
+};
+
+findStudent("Jon");
+
+function delatedStudent(id){
+    let dltStd = -1;
+
+    for(i=0;i<students.length;i++){
+        if(students[i].id == id){
+            dltStd = i;
+            break
+        }
+    }
+
+    if(dltStd){
+        let deletStd =students.splice(dltStd,1);
+        console.log(`deleted ${deletStd[0].name} id:${dltStd} deleted`)
+    }else{
+        console.log("404 not found");
+    }
+}
+
+delatedStudent(102)
+getAll();
