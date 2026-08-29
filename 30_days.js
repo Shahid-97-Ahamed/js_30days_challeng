@@ -592,75 +592,99 @@
 
 // Mini Project
 
-let students =[
-    {id:101,name:"Ajim",age:36,dept:"FrontEnd"},
-    {id:102,name:"Rasel",age:26,dept:"BackEnd"},
-    {id:103,name:"Jon",age:35,dept:"Softwear"},
-];
+// let students =[
+//     {id:101,name:"Ajim",age:36,dept:"FrontEnd"},
+//     {id:102,name:"Rasel",age:26,dept:"BackEnd"},
+//     {id:103,name:"Jon",age:35,dept:"Softwear"},
+// ];
 
-function addStudent(name,age,dept){
-    let addNewStdID =students.length > 0 ?students[students.length - 1].id + 1:101; /*new id created*/
+// function addStudent(name,age,dept){
+//     let addNewStdID =students.length > 0 ?students[students.length - 1].id + 1:101; /*new id created*/
 
-    let newStd ={
-        id:addNewStdID,
-        name:name,
-        department:dept
-    }
+//     let newStd ={
+//         id:addNewStdID,
+//         name:name,
+//         department:dept
+//     }
 
-    students.push(newStd);
+//     students.push(newStd);
 
-    console.log("----New Student Successfully---");
-};
+//     console.log("----New Student Successfully---");
+// };
 
-addStudent("Hataim",40,"DB");
-addStudent("Hataim",40,"DB");
+// addStudent("Hataim",40,"DB");
+// addStudent("Hataim",40,"DB");
 
 // console.log(students)
 
-function getAll(){
-    for(const student of students){
-        console.log(student);
-    }
-};
+// function getAll(){
+//     for(const student of students){
+//         console.log(student);
+//     }
+// };
 
 
 
-function findStudent(name){
-    let findStd = null;
+// function findStudent(name){
+//     let findStd = null;
 
-    for(let student of students){
-        if(student.name == name){
-            findStd = student;
-            break
-        }
-    }
+//     for(let student of students){
+//         if(student.name == name){
+//             findStd = student;
+//             break
+//         }
+//     }
 
-    if(findStd){
-        console.log("Your Student Name Is: ",findStd);
-    }else{
-        console.log("404 not  found");
-    }
-};
+//     if(findStd){
+//         console.log("Your Student Name Is: ",findStd);
+//     }else{
+//         console.log("404 not  found");
+//     }
+// };
 
-findStudent("Jon");
+// findStudent("Jon");
 
-function delatedStudent(id){
-    let dltStd = -1;
+// function delatedStudent(id){
+//     let dltStd = -1;
 
-    for(i=0;i<students.length;i++){
-        if(students[i].id == id){
-            dltStd = i;
-            break
-        }
-    }
+//     for(i=0;i<students.length;i++){
+//         if(students[i].id == id){
+//             dltStd = i;
+//             break
+//         }
+//     }
 
-    if(dltStd){
-        let deletStd =students.splice(dltStd,1);
-        console.log(`deleted ${deletStd[0].name} id:${dltStd} deleted`)
-    }else{
-        console.log("404 not found");
-    }
-}
+//     if(dltStd){
+//         let deletStd =students.splice(dltStd,1);
+//         console.log(`deleted ${deletStd[0].name} id:${dltStd} deleted`)
+//     }else{
+//         console.log("404 not found");
+//     }
+// }
 
-delatedStudent(102)
-getAll();
+// delatedStudent(102)
+// getAll();
+
+// ----------------------------------------------------------------------------------------------------------------------------------------
+
+
+/*
+
+শুধু In-Stock Product, Price অনুযায়ী কম থেকে বেশি সাজানো, শুধু Title+Price বের করা, টোটাল কত টাকা লাগবে স্টক আউট করতে চাইলে সেটা ক্যালকুলেট করুন।
+*/
+
+let products = [
+  { id: 1, title: "Mouse", price: 500, category: "Accessories", inStock: true },
+  { id: 2, title: "Keyboard", price: 1200, category: "Accessories", inStock: false },
+  { id: 3, title: "Monitor", price: 8000, category: "Display", inStock: true },
+  { id: 4, title: "Laptop", price: 55000, category: "Computer", inStock: true },
+  { id: 5, title: "Headphone", price: 1500, category: "Accessories", inStock: true }
+];
+
+const res =products.filter((p)=>p.inStock === true).sort((a,b) => a.price - b.price);
+
+const formetedProduct =res.map(p => `Title ${p.title} and ${p.price} taka`);
+
+const totalOutOFstockAmount =res.reduce((acc,current)=>acc +current.price,0)
+
+console.log(totalOutOFstockAmount);
